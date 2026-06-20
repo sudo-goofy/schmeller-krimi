@@ -91,7 +91,14 @@
 <body class="antialiased min-h-screen p-4 md:p-8">
     <div id="root"></div>
 
-    <script type="text/babel">
+    <script>
+        Babel.registerPreset("react-classic", {
+            presets: [
+                [Babel.availablePresets["react"], { runtime: "classic" }]
+            ]
+        });
+    </script>
+    <script type="text/babel" data-presets="react-classic">
         const { useState, useEffect } = React;
 
         // --- GAME DATA (Isarvorstadt 80337 Edition) ---
@@ -273,6 +280,9 @@
                     </p>
                     
                     <div className="space-y-6">
+                        <button onClick={() => setView('intro')} className="blease-btn bg-white w-full py-4 text-xl block text-center">
+                            📜 Spielanleitung (Regeln)
+                        </button>
                         <button onClick={() => setView('charSelect')} className="blease-btn bg-blease-yellow w-full py-4 text-xl block text-center">
                             🕵️‍♀️ Meine Rolle wählen
                         </button>
@@ -463,9 +473,35 @@
                 </div>
             );
 
+            const renderIntro = () => (
+                <div className="max-w-3xl mx-auto mt-8">
+                    <button onClick={() => setView('home')} className="font-bold border-b-4 border-black mb-8 hover:text-blease-pink uppercase">&larr; Zurück zum Set</button>
+                    <h2 className="text-4xl font-black uppercase mb-8 text-center bg-white border-4 border-black py-2 shadow-[6px_6px_0_0_#0A0A0A]">Spielanleitung</h2>
+                    <div className="space-y-6">
+                        <div className="blease-box bg-white p-6">
+                            <h3 className="text-2xl font-black uppercase mb-2 border-b-4 border-black inline-block">1. Rollenwahl</h3>
+                            <p className="font-script font-bold text-lg mt-2">Jeder wählt eine Rolle aus und verwendet das Passwort, um seine private Akte freizuschalten. Lest nur eure eigene Akte! Jeder hat ein "Fassaden"-Alibi und ein dunkles Geheimnis.</p>
+                        </div>
+                        <div className="blease-box bg-blease-pink text-white p-6 transform rotate-1">
+                            <h3 className="text-2xl font-black uppercase mb-2 border-b-4 border-white inline-block">2. Lügen & Schweigen</h3>
+                            <p className="font-script font-bold text-lg mt-2">In den ersten drei Szenen bleibt euer dunkles Geheimnis streng geheim! Nutzt nur eure "Alibi-Lüge". Erst in Szene 4 fallen die Masken und die wahren Geheimnisse kommen auf den Tisch.</p>
+                        </div>
+                        <div className="blease-box bg-blease-yellow p-6 transform -rotate-1 shadow-[4px_4px_0_0_#0A0A0A]">
+                            <h3 className="text-2xl font-black uppercase mb-2 border-b-4 border-black inline-block">3. Das Skript (Regie)</h3>
+                            <p className="font-script font-bold text-lg mt-2">Ein Spieler (oder alle zusammen) klickt sich auf der Startseite durch "Das Skript". Lest die Regieanweisungen vor, folgt den Szenen. Das Skript gibt den Takt des Spiels vor.</p>
+                        </div>
+                        <div className="blease-box bg-white p-6">
+                            <h3 className="text-2xl font-black uppercase mb-2 border-b-4 border-black inline-block">4. Das Finale</h3>
+                            <p className="font-script font-bold text-lg mt-2">In Szene 5 habt ihr 5 Minuten Zeit, gemeinsam zu diskutieren und abzustimmen, wer die Tat begangen hat. Möge der beste Lügner gewinnen!</p>
+                        </div>
+                    </div>
+                </div>
+            );
+
             return (
                 <div className="pb-20">
                     {view === 'home' && renderHome()}
+                    {view === 'intro' && renderIntro()}
                     {view === 'charSelect' && renderCharSelect()}
                     {view === 'charLogin' && renderCharLogin()}
                     {view === 'charSheet' && renderCharSheet()}
