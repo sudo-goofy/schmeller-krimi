@@ -16,7 +16,7 @@ Es gibt 6 Verdächtige. Alle haben ein Motiv. Alle haben ein dunkles Geheimnis. 
 * **Herr Taaks (71)** - Melancholischer Rentner und Kryptograph.
 * **Frau Anette von Horst** - Die neurotische Eso-Host, zelebriert Aura-Reinigung.
 * **Prof. Michael Hell (60er)** - Elitärer Ex-Solocellist in Rente.
-* **Frau Elisabeth Hell (60er)** - Chefin einer kleinen, etablierten Immobilienfirma und berechnende Society-Gattin ohne Empathie.
+* **Frau Elisabeth Hell (60er)** - Inhaberin einer kleinen, etablierten Kunstgalerie und kühle, kultivierte Society-Gattin.
 * **Justus (30)** - Der Inbegriff der Gentrifizierung: Ein Lastenrad-Hipster.
 * **Leo** - Taaks' mysteriöser Sohn, im Darknet zuhause.
 

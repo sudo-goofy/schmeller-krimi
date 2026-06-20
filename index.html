@@ -150,10 +150,10 @@
             {
                 id: 'elisabeth',
                 name: 'Frau Elisabeth Hell',
-                role: 'Unternehmerin & Berechnende Society-Gattin, 60er',
+                role: 'Galeristin & Society-Gattin, 60er',
                 color: 'bg-white',
                 password: 'geige',
-                public: 'Die eiskalte Chefin einer kleinen, etablierten Immobilienfirma und absolut pragmatische Ehefrau des Cellisten. Betrachtet Menschen primär als Investitionsrisiko. Gefühle stören nur beim Champagner-Trinken.',
+                public: 'Die kultivierte Inhaberin einer kleinen, etablierten Kunstgalerie und pragmatische Ehefrau des Cellisten. Elegant, kühl und mit feinem Gespür für Schönes – ein Glas Champagner stets in Reichweite.',
                 alibi: 'Deine Alibi-Lüge: "Ich lag die ganze Nacht mit fürchterlicher Migräne im Bett. Michael hat im Nebenzimmer endlos auf seinem Cello gekratzt."',
                 secret: 'Du bist keine Frau, die sich erpressen lässt. Du weißt, was dein Mann Michael für deine Spielschulden geopfert hat. Du hast dir gestern Nacht eine Cello-Saite geschnappt und bist eiskalt hinuntergeschlichen, um Hilde "ruhigzustellen". Doch Hilde lag bereits tot auf dem Tisch. Du warst nicht schockiert, nur effizient: Du hast lächelnd noch eine streng limitierte Vintage-Handtasche vom Tresen geklaut (als Aufwandsentschädigung) und bist geräuschlos gegangen.',
                 goal: 'Sei die absolute Ice-Queen. Zeige null Empathie für Hilde. Schütze Michael nicht aus Romantik, sondern um euren exklusiven Lebensstandard zu sichern!'
@@ -247,6 +247,45 @@
             </svg>
         );
 
+        // --- COUNTDOWN TIMER (Szene 5) ---
+        const CountdownTimer = ({ seconds = 300 }) => {
+            const [remaining, setRemaining] = useState(seconds);
+            const [running, setRunning] = useState(false);
+
+            useEffect(() => {
+                if (!running) return;
+                const t = setInterval(() => {
+                    setRemaining(r => (r <= 1 ? 0 : r - 1));
+                }, 1000);
+                return () => clearInterval(t);
+            }, [running]);
+
+            useEffect(() => {
+                if (remaining === 0) setRunning(false);
+            }, [remaining]);
+
+            const mm = String(Math.floor(remaining / 60)).padStart(2, '0');
+            const ss = String(remaining % 60).padStart(2, '0');
+            const done = remaining === 0;
+
+            return (
+                <div className={`border-4 border-black p-4 mb-6 text-center shadow-[6px_6px_0_0_#0A0A0A] ${done ? 'bg-blease-pink animate-pulse' : 'bg-[#0A0A0A]'}`}>
+                    <p className="font-black uppercase tracking-widest text-xs mb-1 text-white">⏳ Tribunal-Countdown</p>
+                    <div className={`font-script font-black text-6xl tracking-tighter ${done ? 'text-white' : 'text-blease-yellow'}`}>
+                        {done ? 'ZEIT UM!' : `${mm}:${ss}`}
+                    </div>
+                    <div className="flex gap-3 justify-center mt-4">
+                        <button onClick={() => setRunning(r => !r)} className="blease-btn bg-blease-green px-5 py-2 text-sm">
+                            {running ? '⏸ Pause' : '▶ Start'}
+                        </button>
+                        <button onClick={() => { setRunning(false); setRemaining(seconds); }} className="blease-btn bg-white px-5 py-2 text-sm">
+                            ↺ Reset
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
         // --- COMPONENTS ---
 
         function App() {
@@ -255,6 +294,9 @@
             const [pwdInput, setPwdInput] = useState('');
             const [pwdError, setPwdError] = useState(false);
             const [gmPhase, setGmPhase] = useState(0);
+            const [votes, setVotes] = useState({});
+            const [oscarVotes, setOscarVotes] = useState({});
+            const [accusedId, setAccusedId] = useState(null);
 
             const handleLogin = (e) => {
                 e.preventDefault();
@@ -397,27 +439,33 @@
                             </p>
                             <p className="font-script font-bold text-[15px]">
                                 <strong>🎭 Action:</strong> {STORY_PHASES[gmPhase].regie_act}
+                            </p>
+                        </div>
+
                         {STORY_PHASES[gmPhase].clues && (
-                            <div className="mt-6 bg-white border-4 border-black p-4 shadow-[4px_4px_0_0_#0A0A0A] transform rotate-1">
+                            <div className="bg-white border-4 border-black p-4 mb-6 shadow-[4px_4px_0_0_#0A0A0A] transform rotate-1">
                                 <h4 className="font-black uppercase text-lg border-b-2 border-black pb-1 mb-3 text-blease-pink">🔍 Gefundene Indizien (Vorlesen!)</h4>
                                 <ul className="space-y-3 font-script font-bold text-[15px]">
                                     {STORY_PHASES[gmPhase].clues.map((clue, i) => (
                                         <li key={i} className="flex">
-                                            <span className="mr-2">👉</span> 
+                                            <span className="mr-2">👉</span>
                                             <span>{clue}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                         )}
-                        
-                            </p>
-                        </div>
 
                         {/* Story Text im echten Drehbuch Look */}
                         <div className="font-script text-lg leading-relaxed p-6 border-l-4 border-black bg-gray-50 whitespace-pre-line">
                             {STORY_PHASES[gmPhase].content}
                         </div>
+
+                        {gmPhase === STORY_PHASES.length - 1 && (
+                            <div className="mt-8">
+                                <CountdownTimer seconds={300} />
+                            </div>
+                        )}
                         
                         <div className="flex justify-between mt-10 pt-6 border-t-4 border-black">
                             <button 
@@ -435,9 +483,9 @@
                                 </button>
                             ) : (
                                 <button 
-                                    onClick={() => setView('resolution')}
+                                    onClick={() => setView('tribunal')}
                                     className="blease-btn bg-blease-pink text-white px-6 py-3 animate-pulse text-sm">
-                                    Auflösung
+                                    Zum Tribunal ⚖️
                                 </button>
                             )}
                         </div>
@@ -445,15 +493,29 @@
                 </div>
             );
 
-            const renderResolution = () => (
+            const renderResolution = () => {
+                const accused = CHARACTERS.find(c => c.id === accusedId);
+                const correct = accusedId === 'justus';
+                let oscarId = null, oscarN = 0;
+                CHARACTERS.forEach(c => { const n = oscarVotes[c.id] || 0; if (n > oscarN) { oscarN = n; oscarId = c.id; } });
+                const oscar = oscarN > 0 ? CHARACTERS.find(c => c.id === oscarId) : null;
+
+                return (
                 <div className="max-w-2xl mx-auto mt-8 text-center">
+                    <div className={`border-4 border-black p-4 mb-8 shadow-[6px_6px_0_0_#0A0A0A] ${correct ? 'bg-blease-green' : 'bg-blease-pink text-white'}`}>
+                        <p className="font-black uppercase tracking-widest text-sm">{correct ? '✅ Schuldspruch' : '⚖️ Justizirrtum'}</p>
+                        <p className="font-black uppercase text-3xl leading-none mt-1">{accused ? `Angeklagt: ${accused.name}` : 'Kein Urteil'}</p>
+                    </div>
+
                     <h2 className="text-5xl font-black uppercase mb-8 text-blease-pink" style={{ textShadow: '4px 4px 0px #0A0A0A' }}>Der Exitus des Authentischen</h2>
-                    
+
                     <div className="blease-box bg-white p-8 text-left">
-                        <h3 className="text-3xl font-black uppercase mb-4 border-b-4 border-black pb-2">Die poetische Wahrheit</h3>
-                        
+                        {correct ? (
+                        <>
+                        <h3 className="text-3xl font-black uppercase mb-4 border-b-4 border-black pb-2">Ihr habt ihn entlarvt.</h3>
+
                         <p className="text-xl font-script font-bold mb-6">
-                            Der Tänzer im Nebel der Gier war <span className="bg-blease-yellow px-2 border-2 border-black font-sans font-black uppercase text-2xl ml-1 shadow-[2px_2px_0_0_#0A0A0A]">Justus!</span>
+                            Der Tänzer im Nebel der Gier war <span className="bg-blease-yellow px-2 border-2 border-black font-sans font-black uppercase text-2xl ml-1 shadow-[2px_2px_0_0_#0A0A0A]">Justus!</span> Und ihr habt mit zitterndem Finger auf ihn gezeigt.
                         </p>
                         <p className="font-script font-bold mb-4">
                             Es ist die banale Tragik des Spätkapitalismus. Justus wollte den Raum, das Kapital, die hippe, durchdesignte Leere eines Matcha-Cafés. Doch als Hilde ihn im Mondlicht auslachte, ihn seelenlos nannte – einen bloßen Businessplan auf zwei Beinen –, zerbrach sein fragiles, auf Hafermilch gebautes Ego. Ein kurzes, brutales Handgemenge. Hilde stürzte in die antike Schneiderschere. Vintage-Seide, getränkt in Echtblut.
@@ -461,7 +523,23 @@
                         <p className="font-script font-bold mb-4">
                             Und dann? Der absolute Wahnsinn der Ästhetisierung. Panik wird zur Performance. In einem tränenblinden Anflug von romantisierendem Wahnsinn drapiert er die Leiche, wuchtet sie ins Urban-Mobility-Gefährt – sein gigantisches E-Lastenrad – und pedaliert weinend durch die regennasse Nacht zum Bahnwärter Thiel. Am Kran der Diskokugel inszeniert er ihren Abgang als morbid-episches Kunstwerk. Er ist kein eiskalter Mörder. Er ist nur der lächerlichste, tragischste Regisseur seines eigenen, pathetischen Untergangs.
                         </p>
-                        
+                        </>
+                        ) : (
+                        <>
+                        <h3 className="text-3xl font-black uppercase mb-4 border-b-4 border-black pb-2">Das Opferlamm</h3>
+
+                        <p className="text-xl font-script font-bold mb-6">
+                            Ihr habt <span className="bg-blease-pink text-white px-2 border-2 border-black font-sans font-black uppercase text-2xl ml-1 shadow-[2px_2px_0_0_#0A0A0A]">{accused ? accused.name : '—'}</span> ans Messer der Justiz geliefert.
+                        </p>
+                        <p className="font-script font-bold mb-4">
+                            {accused ? accused.name : 'Diese Person'}s Geheimnis war hässlich, niederträchtig, voller Schuld – aber es war <strong>kein Mord</strong>. Ihr habt euch ein bequemes Bauernopfer gesucht, um den eigenen feigen Rest zu retten. Genau davor warnte das Tribunal. Die Isarvorstadt frisst ihre Schwächsten zuerst.
+                        </p>
+                        <p className="font-script font-bold mb-4">
+                            Denn während ihr mit zitterndem Finger auf eine bequeme Lüge zeigtet, radelte der wahre Mörder ungesehen in die regennasse Nacht: <strong>Justus.</strong> Im Streit um den Mietvertrag stieß er Hilde in die antike Schneiderschere, drapierte die Leiche in tränenblindem Hipster-Wahn auf seinem E-Lastenrad und hängte sie als „episches Kunstwerk" an den Kran der Diskokugel. Kein eiskalter Killer – nur der lächerlichste, tragischste Regisseur seines eigenen Untergangs. Und jetzt? Frei. Nächste Woche eröffnet er seinen Matcha-Co-Working-Space im „Mokka".
+                        </p>
+                        </>
+                        )}
+
                         <div className="bg-[#0A0A0A] text-white p-4 mt-8 border-4 border-blease-pink shadow-[6px_6px_0_0_#EF476F]">
                             <p className="font-black uppercase text-center text-blease-yellow mb-2 tracking-widest">Director's Cut (Alternativ, ohne Justus):</p>
                             <p className="font-script font-bold text-sm text-center">
@@ -469,9 +547,91 @@
                             </p>
                         </div>
                     </div>
-                    <button onClick={() => { setView('home'); setGmPhase(0); }} className="blease-btn bg-blease-blue text-white mt-12 px-10 py-5 text-xl">Applaus & Abspann</button>
+
+                    {oscar && (
+                        <div className="blease-box bg-blease-yellow p-4 mt-8 inline-block transform -rotate-1">
+                            <p className="font-black uppercase text-sm">🏆 Goldene Klappe – Bester Lügner</p>
+                            <p className="font-black uppercase text-3xl">{oscar.name}</p>
+                        </div>
+                    )}
+
+                    <button onClick={() => { setView('home'); setGmPhase(0); setVotes({}); setOscarVotes({}); setAccusedId(null); }} className="blease-btn bg-blease-blue text-white mt-12 px-10 py-5 text-xl block mx-auto">Applaus & Abspann</button>
                 </div>
-            );
+                );
+            };
+
+            const renderTribunal = () => {
+                const total = Object.values(votes).reduce((a, b) => a + b, 0);
+                let leaderId = null, leaderN = 0;
+                CHARACTERS.forEach(c => { const n = votes[c.id] || 0; if (n > leaderN) { leaderN = n; leaderId = c.id; } });
+
+                let oscarLeadId = null, oscarLeadN = 0;
+                CHARACTERS.forEach(c => { const n = oscarVotes[c.id] || 0; if (n > oscarLeadN) { oscarLeadN = n; oscarLeadId = c.id; } });
+
+                return (
+                <div className="max-w-4xl mx-auto mt-8">
+                    <button onClick={() => setView('gm')} className="font-bold border-b-4 border-black mb-6 uppercase">&larr; Zurück zur Szene</button>
+
+                    <div className="text-center mb-6">
+                        <h2 className="text-5xl font-black uppercase text-blease-pink" style={{ textShadow: '4px 4px 0px #0A0A0A' }}>⚖️ Das Tribunal</h2>
+                        <p className="font-script font-bold mt-3 bg-white border-4 border-black inline-block px-4 py-2 shadow-[4px_4px_0_0_#0A0A0A] transform -rotate-1">
+                            Auf 3 zeigen alle mit dem Finger. Tippt jede Stimme ein – die meisten Finger entscheiden.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                        {CHARACTERS.map(c => {
+                            const n = votes[c.id] || 0;
+                            const isLeader = leaderId === c.id && n > 0;
+                            return (
+                                <div key={c.id}
+                                    onClick={() => setVotes(v => ({ ...v, [c.id]: (v[c.id] || 0) + 1 }))}
+                                    className={`blease-box ${c.color} p-4 cursor-pointer relative ${isLeader ? 'ring-4 ring-blease-pink -translate-y-1' : ''}`}>
+                                    {isLeader && <div className="absolute -top-4 -right-3 text-4xl">👑</div>}
+                                    <h3 className="text-xl font-black uppercase leading-none">{c.name}</h3>
+                                    <p className="font-script font-bold text-xs mt-1 leading-tight">{c.role}</p>
+                                    <div className="flex items-center justify-between mt-3 border-t-2 border-black pt-2">
+                                        <span className="font-black text-4xl">{n}</span>
+                                        <div className="flex gap-1">
+                                            <button onClick={(e) => { e.stopPropagation(); setVotes(v => ({ ...v, [c.id]: Math.max(0, (v[c.id] || 0) - 1) })); }} className="w-9 h-9 border-2 border-black bg-white font-black text-xl leading-none">–</button>
+                                            <button onClick={(e) => { e.stopPropagation(); setVotes(v => ({ ...v, [c.id]: (v[c.id] || 0) + 1 })); }} className="w-9 h-9 border-2 border-black bg-white font-black text-xl leading-none">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 justify-between items-center mb-12">
+                        <button onClick={() => setVotes({})} className="blease-btn bg-white px-5 py-3 text-sm">↺ Stimmen zurücksetzen</button>
+                        <button
+                            disabled={total === 0}
+                            onClick={() => { setAccusedId(leaderId); setView('resolution'); }}
+                            className="blease-btn bg-blease-pink text-white px-8 py-4 text-lg disabled:opacity-40 disabled:cursor-not-allowed">
+                            ⚖️ Urteil verkünden &rarr;
+                        </button>
+                    </div>
+
+                    <div className="blease-box bg-white p-5">
+                        <h3 className="text-2xl font-black uppercase mb-1">🏆 Goldene Klappe</h3>
+                        <p className="font-script font-bold text-sm mb-4">Optional: Wer hat am schamlosesten gelogen? Kürt euren Lieblings-Schauspieler (ohne Einfluss auf den Fall).</p>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            {CHARACTERS.map(c => {
+                                const n = oscarVotes[c.id] || 0;
+                                const win = oscarLeadId === c.id && n > 0;
+                                return (
+                                    <button key={c.id}
+                                        onClick={() => setOscarVotes(v => ({ ...v, [c.id]: (v[c.id] || 0) + 1 }))}
+                                        className={`border-2 border-black px-2 py-2 text-sm font-bold ${win ? 'bg-blease-yellow' : 'bg-white'}`}>
+                                        {win && '⭐ '}{c.name} ({n})
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+                );
+            };
 
             const renderIntro = () => (
                 <div className="max-w-3xl mx-auto mt-8">
@@ -506,6 +666,7 @@
                     {view === 'charLogin' && renderCharLogin()}
                     {view === 'charSheet' && renderCharSheet()}
                     {view === 'gm' && renderGM()}
+                    {view === 'tribunal' && renderTribunal()}
                     {view === 'resolution' && renderResolution()}
                 </div>
             );
