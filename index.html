@@ -308,6 +308,16 @@
                 }
             };
 
+            const handleGmLogin = (e) => {
+                e.preventDefault();
+                if (pwdInput.toLowerCase() === 'schmella') {
+                    setView('gm');
+                    setPwdError(false);
+                } else {
+                    setPwdError(true);
+                }
+            };
+
             const renderHome = () => (
                 <div className="max-w-2xl mx-auto text-center mt-10 md:mt-16">
                     <IconSkullCoffee />
@@ -328,7 +338,7 @@
                         <button onClick={() => setView('charSelect')} className="blease-btn bg-blease-yellow w-full py-4 text-xl block text-center">
                             🕵️‍♀️ Meine Rolle wählen
                         </button>
-                        <button onClick={() => setView('gm')} className="blease-btn bg-[#0A0A0A] text-white w-full py-4 text-xl block text-center">
+                        <button onClick={() => { setView('gmLogin'); setPwdInput(''); setPwdError(false); }} className="blease-btn bg-[#0A0A0A] text-white w-full py-4 text-xl block text-center">
                             🎬 Das Skript (Regie)
                         </button>
                     </div>
@@ -362,11 +372,32 @@
                                 type="password" 
                                 value={pwdInput} 
                                 onChange={(e) => setPwdInput(e.target.value)}
-                                className="blease-input w-full p-4 text-center text-xl"
+                                className="blease-input w-full p-4 text-center text-xl text-black"
                                 placeholder="Geheimcode"
                             />
                             {pwdError && <p className="text-white font-script font-bold bg-red-600 inline-block px-2 border-2 border-black transform rotate-2">Falsch! Schnitt, nochmal!</p>}
-                            <button type="submit" className="blease-btn bg-white w-full py-4 text-lg">Akte entsperren</button>
+                            <button type="submit" className="blease-btn bg-white w-full py-4 text-lg text-black">Akte entsperren</button>
+                        </form>
+                    </div>
+                </div>
+            );
+
+            const renderGmLogin = () => (
+                <div className="max-w-md mx-auto mt-16 text-center">
+                    <button onClick={() => setView('home')} className="font-bold border-b-4 border-black mb-8 uppercase">&larr; Zurück zum Set</button>
+                    <div className="blease-box bg-[#0A0A0A] p-8 text-white">
+                        <h2 className="text-4xl font-black uppercase mb-2 text-white">🎬 Regie</h2>
+                        <p className="font-script font-bold mb-8 bg-white text-black border-2 border-black inline-block px-3 py-1">Passwort erforderlich</p>
+                        <form onSubmit={handleGmLogin} className="space-y-4">
+                            <input 
+                                type="password" 
+                                value={pwdInput} 
+                                onChange={(e) => setPwdInput(e.target.value)}
+                                className="blease-input w-full p-4 text-center text-xl text-black"
+                                placeholder="Regie-Code"
+                            />
+                            {pwdError && <p className="text-white font-script font-bold bg-red-600 inline-block px-2 border-2 border-white transform rotate-2">Falsch! Schnitt, nochmal!</p>}
+                            <button type="submit" className="blease-btn bg-blease-pink border-white text-white w-full py-4 text-lg">Skript freischalten</button>
                         </form>
                     </div>
                 </div>
@@ -665,6 +696,7 @@
                     {view === 'charSelect' && renderCharSelect()}
                     {view === 'charLogin' && renderCharLogin()}
                     {view === 'charSheet' && renderCharSheet()}
+                    {view === 'gmLogin' && renderGmLogin()}
                     {view === 'gm' && renderGM()}
                     {view === 'tribunal' && renderTribunal()}
                     {view === 'resolution' && renderResolution()}
