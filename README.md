@@ -13,9 +13,9 @@ Es gibt 6 Verdächtige. Alle haben ein Motiv. Alle haben ein dunkles Geheimnis. 
 ## 🎭 Die Rollen
 
 * **Claudia (65)** - Ex-BR Journalistin, "woke" und redselig.
-* **Herr Taaks (71)** - Melancholischer Rentner und Kryptograph.
-* **Frau Anette von Horst** - Die neurotische Eso-Host, zelebriert Aura-Reinigung.
-* **Prof. Michael Hell (60er)** - Elitärer Ex-Solocellist in Rente.
+* **Herr Taaks (71)** - Stiller, einsamer Rentner mit weißem Haar und leichtem Buckel. Liest viel, fängt Post und Pakete ab. Mysteriöser Sohn.
+* **Frau Anette von Horst** - Jung gebliebene, kunstaffine Tratschtante. Kinderlos, neugierig, klatschfreudig – mit kleinem Salbei-Spleen.
+* **Prof. Michael Hell (60er)** - Bis 2023 Musikintendant der Münchner Philharmoniker, seither in Rente. Österreicher & Ehrenbürger, spielt ab und zu noch auf Hochzeiten.
 * **Frau Elisabeth Hell (60er)** - Inhaberin einer kleinen, etablierten Kunstgalerie und kühle, kultivierte Society-Gattin.
 * **Justus (30)** - Der Inbegriff der Gentrifizierung: Ein Lastenrad-Hipster.
 * **Leo** - Taaks' mysteriöser Sohn, im Darknet zuhause.

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mord in der Schmellerstraße 80337</title>
+    <title>Mord im Schrebergarten</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -104,146 +104,141 @@
         // --- GAME DATA (Isarvorstadt 80337 Edition) ---
         const CHARACTERS = [
             {
-                id: 'claudia',
-                name: 'Claudia',
-                role: 'Ex-BR Journalistin, 65',
+                id: 'brigitte',
+                name: 'Brigitte Knoll',
+                role: 'Witwe & Festausschuss-Chefin, 66',
                 color: 'bg-blease-pink',
-                password: 'woke',
-                public: 'Heiter, extrem redselig und anstrengend woke. Führt einen Kleinkrieg gegen das Patriarchat und sammelt Unterschriften gegen die Gentrifizierung des Schlachthofviertels.',
-                secret: 'Es zerreißt dir das Herz. Du hast Hilde eigentlich geliebt. Heimlich habt ihr nachts Asbach Uralt getrunken. Aber deine neue, radikale Podcast-Bubble fand Hildes Rotlicht-Vergangenheit "problematisch". Um dazuzugehören, hast du Hilde gestern Nacht gedroht, ihre alten Geschichten mit einem reißerischen Fake-Enthüllungs-Podcast zu "canceln", damit sie auszieht. Hilde hat nur traurig gelächelt. Das war das letzte Mal, dass du sie lebend sahst.',
-                alibi: 'Deine Alibi-Lüge: "Ich war die ganze Nacht in meiner Wohnung und habe mein vierstündiges Podcast-Skript über toxische Männlichkeit abgetippt. Ich war nie unten!"',
-                goal: 'Überspiele deine immense Trauer mit aggressiver Politisierung. Beschuldige den elitären Hochkultur-Mann (Michael) oder den toxischen Matcha-Kapitalisten (Justus).'
+                password: 'streusel',
+                public: 'Die perfekte Vereinsgattin. Organisiert seit 40 Jahren das Sommerfest, bäckt den legendären Streuselkuchen und lächelt, bis die Kiefermuskeln zittern. Eine Säule der Goldenen Scholle.',
+                alibi: 'Deine Alibi-Lüge: "Ich stand den ganzen Abend in der Vereinsheim-Küche und habe 200 Stück Streuselkuchen vorbereitet. Ich war keine Sekunde draußen!"',
+                secret: 'Vierzig Jahre unter Reinhards Paragrafen-Terror. Heute Nacht sollte Schluss sein: Im Geräteschuppen steht ein gepackter Koffer, im Morgengrauen wolltest du ihn endlich verlassen. Du hast ihn nicht getötet – aber deine letzten Worte an ihn waren der Wunsch, er möge "einfach vom Erdboden verschwinden". Vor Wochen fandst du das Bündel Festkassen-Geld in seiner Schublade und hast geschwiegen. Jetzt ist er weg. Du fühlst dich frei. Und das macht dir furchtbar Angst.',
+                goal: 'Überspiele deine Erleichterung mit der Routine der perfekten Gastgeberin. Versteck den Koffer. Lenke auf die Unruhestifter Jonas und Kevin.'
             },
             {
-                id: 'taks',
-                name: 'Herr Taaks',
-                role: 'Stiller Rentner & Einzelgänger, 71',
+                id: 'detlef',
+                name: 'Detlef Wurm',
+                role: 'Schriftführer & ewiger Zweiter, 58',
                 color: 'bg-blease-blue',
-                password: 'enigma',
-                public: 'Ein stiller, einsamer Beobachter mit schlohweißem Haar und leichtem Buckel. Liest stundenlang allein in seiner Wohnung. Fängt "netterweise" Post und Pakete im Flur ab und legt sie allen ordentlich vor die Tür. Spricht selten – und über seinen mysteriösen Sohn schon gar nicht.',
-                secret: 'Du bist nicht kriminell, du bist unendlich einsam. Du öffnest Briefe, weil du Teil des Lebens der anderen sein willst. Letzte Woche hast du Hildes Tagebuch-Einträge abgefangen. Sie wusste von den massiven Spielschulden deines Sohnes Leo bei der Russenmafia. Du warst gestern Nacht im "Mokka", um das Tagebuch zu stehlen und deinen Sohn zu schützen. Aber du fandst nur Chaos, eine umgestürzte Schaufensterpuppe und Reifenspuren.',
-                alibi: 'Deine Alibi-Lüge: "Ich lag wie jeden Abend um 22 Uhr im Bett. Als leichter Schläfer hörte ich nur diese furchtbaren Techno-Bässe von draußen."',
-                goal: 'Sei kryptisch und melancholisch. Beschütze deinen Sohn Leo. Lass kleine, poetische Kommentare über "Muster im Chaos" fallen.'
+                password: 'paragraf',
+                public: 'Der Hüter der Gartenordnung. Misst Heckenhöhen mit dem Zollstock auf den Millimeter und führt Protokoll über jede Zuwiderhandlung. Wartet seit zwanzig Jahren auf den Vorsitz.',
+                alibi: 'Deine Alibi-Lüge: "Ich saß im Vereinsheim und habe das Protokoll der Mitgliederversammlung nachgetragen. Ordnungsgemäß. Wie immer."',
+                secret: 'Zwanzig Jahre lang warst du sein loyaler Zweiter. Heute Abend, betrunken, lachte Reinhard dich vor allen aus: Den Vorsitz bekämst du "nie im Leben", er gäbe ihn lieber dem Influencer-Bengel. Etwas in dir zerriss. Du bist nicht zum Komposter gegangen – du bist zu seinem heiß geliebten Oldtimer-Hollandrad gestürmt und hast es vor Wut zerkratzt. Eine erbärmliche Tat. Und nun hast du Todesangst, dass man sie für Mord hält. Jemand stand am Komposthaufen. Aber du sahst nur das Fahrrad.',
+                goal: 'Beharre darauf, dass "die Ordnung eingehalten werden muss", selbst jetzt. Verberge das zerkratzte Fahrrad. Lenke ab.'
             },
             {
-                id: 'host',
-                name: 'Frau Anette von Horst',
-                role: 'Kunstliebhaberin & Tratschtante',
-                color: 'bg-blease-yellow',
-                password: 'karma',
-                public: 'Im Kopf jung geblieben, kinderlos und mit herzlicher Allergie gegen Kinderwagen und Lastenräder im Treppenhaus. Kunstbegeistert und unheilbar neugierig – die Tratschtante des Hauses, die jeden Klatsch im Viertel zuerst weiß. Räuchert nebenbei gern mal Salbei für die "gute Energie".',
-                alibi: 'Deine Alibi-Lüge: "Ich habe die halbe Nacht auf meinem Meditationskissen gesessen und eine intensive Chakra-Reinigung durchgeführt. Meine Aura war völlig isoliert."',
-                secret: 'Die karmische Schuld frisst dich auf. Du bist gestern Nacht mit deinem Palo-Santo-Stick in den Hof gegangen, um Justus\' Lastenrad heimlich die Reifen aufzustechen. Durch das Fenster des "Mokka" sahst du Hilde. Sie weinte stumm und hielt ein goldenes Maßband umklammert. Jemand stand im Schatten bei ihr. Hilde sah dich direkt an... flehend. Aber du wolltest diese "negative Energie" nicht in deine Aura lassen. Du gingst einfach wieder hoch meditieren.',
-                goal: 'Verberge deine Schuldgefühle hinter Kunst-Geplauder und Nachbarschafts-Klatsch. Tische den neuesten Tratsch auf und stichle elegant gegen alle, die das schöne alte Haus "verschandeln".'
-            },
-            {
-                id: 'michael',
-                name: 'Prof. Michael Hell',
-                role: 'Ex-Musikintendant & Cellist, 60er',
+                id: 'jonas',
+                name: 'Jonas "Sunny"',
+                role: 'Permakultur-Guerilla-Gärtner, 32',
                 color: 'bg-blease-green',
-                password: 'cello',
-                public: 'Bis 2023 Musikintendant der Münchner Philharmoniker, seither in Rente. Gebürtiger Österreicher und dort Ehrenbürger, gefeierter Cellist – heute spielt er nur noch ab und zu auf Hochzeiten und Empfängen. Schwelgt in der Vergangenheit des alten Gasteigs und empfindet den wummernden Techno-Bass vom Bahnwärter Thiel als persönliche Beleidigung seines Lebenswerks.',
-                alibi: 'Deine Alibi-Lüge: "Ich habe in unserem Wohnzimmer geübt. Etwas Bach. Laut und intensiv. Meine Frau lag mit Migräne nebenan und kann das bezeugen."',
-                secret: 'Du hast deine Seele für die Liebe verkauft. Um die horrenden Spielschulden deiner Frau Elisabeth zu tilgen, hast du kurz vor deiner Rente 2023 dein von der Musikhochschule geliehenes, sündhaft teures italienisches Meister-Cello gegen eine exzellente Fälschung getauscht und diese ahnungslos zurückgegeben. Hilde kannte den Hehler. Sie hat dich in deinem Ruhestand erpresst – nicht für Geld, sondern für demütigende Gratis-Privatkonzerte im "Mokka"! Gestern Nacht hast du in deiner Wohnung wie im Wahn extrem laut Bach gespielt... um den tödlichen Lärm zu übertönen, den du von unten hörtest.',
-                goal: 'Sei elitär, verbittert über die Rente, aber mit einem Hauch von tragischer Verzweiflung. Dein Legendenstatus als Professor darf niemals auffliegen! Beschuldige die kultulose Techno-Jugend.'
+                password: 'kompost',
+                public: 'Pflanzt "wild", lehnt die Gartenordnung als "Spießer-Diktatur" ab, betreibt ein Kompostklo und sammelt mehr Abmahnungen als Ernte. Riecht nach Patschuli und Mist.',
+                alibi: 'Deine Alibi-Lüge: "Ich saß bei einer Mondphasen-Meditation in meiner Laube, völlig offline, im Einklang mit dem Boden. Ich habe nichts gehört."',
+                secret: 'Hinter deiner Laube wächst etwas streng gegen die Gartenordnung – kein Rauschgift, sondern eine illegale geschützte Wildblumenwiese und deine verbotene Saatgut-Tauschbörse. Du hast Panik, dass alle das Schlimmste denken. In der Nacht schlichst du zum Komposthaufen – dem besten der Kolonie –, um dir im Dunkeln Kompost zu "befreien". Da sahst du Reinhard im Laternenlicht mit jemandem streiten. Du warst zu bekifft und zu feige, um zu erkennen, mit wem.',
+                goal: 'Wettere gegen den Paragrafen-Terror des Vereins. Beschütze deine Geheim-Wiese. Du bist Zeuge – aber rede dich um Kopf und Kragen.'
             },
             {
-                id: 'elisabeth',
-                name: 'Frau Elisabeth Hell',
-                role: 'Galeristin & Society-Gattin, 60er',
-                color: 'bg-white',
-                password: 'geige',
-                public: 'Die kultivierte Inhaberin einer kleinen, etablierten Kunstgalerie und pragmatische Ehefrau des Cellisten. Elegant, kühl und mit feinem Gespür für Schönes – ein Glas Champagner stets in Reichweite.',
-                alibi: 'Deine Alibi-Lüge: "Ich lag die ganze Nacht mit fürchterlicher Migräne im Bett. Michael hat im Nebenzimmer endlos auf seinem Cello gekratzt."',
-                secret: 'Du bist keine Frau, die sich erpressen lässt. Du weißt, was dein Mann Michael für deine Spielschulden geopfert hat. Du hast dir gestern Nacht eine Cello-Saite geschnappt und bist eiskalt hinuntergeschlichen, um Hilde "ruhigzustellen". Doch Hilde lag bereits tot auf dem Tisch. Du warst nicht schockiert, nur effizient: Du hast lächelnd noch eine streng limitierte Vintage-Handtasche vom Tresen geklaut (als Aufwandsentschädigung) und bist geräuschlos gegangen.',
-                goal: 'Sei die absolute Ice-Queen. Zeige null Empathie für Hilde. Schütze Michael nicht aus Romantik, sondern um euren exklusiven Lebensstandard zu sichern!'
+                id: 'hannelore',
+                name: 'Hannelore Specht',
+                role: 'Rosenzüchterin & Wettbewerbs-Legende, 71',
+                color: 'bg-blease-yellow',
+                password: 'rose',
+                public: 'Die Grande Dame der Beete. Neunfache Gewinnerin des Wettbewerbs "Schönster Garten". Lächelt zuckersüß und kämpft mit der Gnadenlosigkeit einer Generälin um die Goldene Kelle.',
+                alibi: 'Deine Alibi-Lüge: "Ich habe bis zur Dämmerung meine Rosen ausgeputzt und lag um neun im Bett. Mein Schönheitsschlaf ist heilig."',
+                secret: 'Letztes Jahr, da bist du dir sicher, hat Reinhard deine Rosen sabotiert, damit sein Kumpel gewinnt. Diesen Sommer hast du dich gerächt: Heimlich hast du seine prämierten Tomaten mit genau jenem Unkrautvernichter besprüht, der jetzt am Tatort liegt. Pflanzenmord, kein Menschenmord! Aber du bist außer dir vor Angst, dass man dir das Gift anhängt. Das wäre das Ende deiner makellosen Legende.',
+                goal: 'Gewinne die Goldene Kelle um jeden Preis. Verberge die vergifteten Tomaten. Lenke den Verdacht auf den Mann mit dem Geld.'
             },
             {
-                id: 'justus',
-                name: 'Justus',
-                role: 'Lastenrad-Hipster, 30',
+                id: 'kevin',
+                name: 'Kevin Pflug',
+                role: 'Urban-Gardening-Influencer, 29',
                 color: 'bg-gray-200',
-                password: 'matcha',
-                alibi: 'Deine Alibi-Lüge: "Ich saß mit einem Kumpel bis nachts an der Isar und wir haben Bio-Riesling getrunken. Mein Lastenrad stand hier abgeschlossen im Hof, jemand hat es geklaut!"',
-                public: 'Der Inbegriff der 80337-Gentrifizierung. Trägt Carhartt-Mützen im Sommer. Wollte Hildes Laden aufkaufen, um einen "Matcha-Co-Working-Space" zu eröffnen.',
-                secret: 'Du bist der MÖRDER! Aber es ist eine Indie-Tragödie. Im Streit um den Mietvertrag eskalierte es. Du stießt Hilde, sie fiel unglücklich in eine riesige, antike Schneiderschere. Du warst im Schock. Aus einer völlig verqueren Hipster-Logik heraus wolltest du ihr ein "episches, urbanes Begräbnis" geben. Du fuhrst sie in deinem E-Lastenrad zum Bahnwärter Thiel und hängtest sie an den Kran – ein letztes Kunstwerk unter der Diskokugel.',
-                goal: 'Lüge! Aber sei dabei tief emotional und weinerlich. Du hast Hilde doch "so sehr respektiert". Das Lastenrad muss jemand geklaut haben, während du an der Isar warst!'
+                password: 'reichweite',
+                public: 'Kaufte die Parzelle als Instagram-Kulisse. Filmt "authentisches Landleben" mit Ringlicht und Drohne und will aus der Kolonie eine Content-Marke machen. Trägt Gummistiefel, die nie Erde sehen.',
+                alibi: 'Deine Alibi-Lüge: "Ich habe in meiner Laube mit Kopfhörern ein Reel geschnitten. Voll im Flow, nichts mitbekommen."',
+                secret: 'Dein "Urban-Gardening-Imperium" ist pleite – eine Fassade aus geliehenen Requisiten. Du hast einen Sponsorendeal für ein "virales Sommerfest-Reveal" angenommen, doch Reinhard verbot dir gnadenlos jeden Livestream ("kein Zirkus in meinem Verein"). Du hast trotzdem heimlich gefilmt – und dein Handy hat vielleicht etwas am Komposter eingefangen. Als der Streit eskalierte, bist du in Panik geflohen und hast dein Ringlicht zertrümmert im Gras zurückgelassen.',
+                goal: 'Schütze dein bankrottes Image und dein geheimes Filmmaterial. Du bist der zweite Zeuge. Lenke auf "die Boomer".'
             },
             {
-                id: 'leo',
-                name: 'Leo',
-                role: 'Taaks\' mysteriöser Sohn',
-                color: 'bg-gray-800 text-white',
-                password: 'darknet',
-                alibi: 'Deine Alibi-Lüge: "Ich war den ganzen Abend mit Noise-Cancelling-Kopfhörern auf einem Krypto-Discord-Server. Ich habe genau nichts mitbekommen."',
-                public: 'Ein Schatten, der nach kaltem Rauch riecht. Trägt immer Kapuze. Die Augenringe eines Mannes, der zu viel im Darknet surft.',
-                secret: 'Du schuldest der Unterwelt viel Geld. Hilde, die alte Rotlicht-Königin, war die Einzige, die dir helfen wollte. Sie war wie ein Schutzengel für dich. Du hast gestern Nacht im Keller unter dem Mokka versteckt gewartet. Du hast oben das Handgemenge gehört. Und du hast gehört, wie jemand weinte, während er eine Leiche über den Holzboden schliff. Die schweren Reifen eines Lastenrads quietschten. Du hast aus Feigheit nicht geholfen.',
-                goal: 'Spiele den distanzierten Hacker, der in Wahrheit zutiefst traumatisiert ist, weil er seinen Schutzengel verloren hat. Hetze gegen das Lastenrad!'
+                id: 'gerd',
+                name: 'Gerd Möller',
+                role: 'Kassenwart & Vereins-Institution, 61',
+                color: 'bg-white',
+                password: 'kasse',
+                public: 'Der grundsolide Kassenwart. Seit 25 Jahren verwaltet er treu jeden Cent der Vereinskasse. Unauffällig, zuverlässig, über jeden Zweifel erhaben – das stille Rückgrat der Goldenen Scholle.',
+                alibi: 'Deine Alibi-Lüge: "Ich habe im Vereinsbüro allein die Festkasse gezählt. Pflichtbewusst, wie eh und je. Bezeugen kann es niemand, aber so bin ich nun mal."',
+                secret: 'Du bist der MÖRDER – und es ist eine erbärmliche Tragödie. Seit Jahren zweigst du heimlich die Vereins- und Festkasse ab, um die Schulden deiner gescheiterten Koi-Karpfen-Import-Firma zu stopfen. Reinhard fand das Loch in den Büchern. Am Komposter stellte er dich, betrunken und gnadenlos: Morgen bei der Ehrung würde er alles verkünden. Du hast gefleht. Er lachte nur. In Panik stießt du ihn – er fiel gegen den gusseisernen Wanderpokal und die Betonkante des Komposters. Tot. Du wischtest den Pokal ab, risst die belastenden Seiten aus dem Kassenbuch und stopftest sie in den Kompost. Dann stelltest du einen Gartenzwerg auf, als sei er nur gestolpert.',
+                goal: 'Spiele den fassungslosen, treuen Kassenwart. Lenke alle auf die offensichtlichen Unruhestifter. Was auch geschieht: Die Bücher dürfen NIEMALS geöffnet werden.'
             }
         ];
 
         const STORY_PHASES = [
             {
-                title: 'Szene 1: Die hysterische Idylle',
-                regie_music: 'Spielt leise, aber gnadenlos wummernde Techno-Beats (Tipp: Paul Kalkbrenner).',
-                regie_act: 'Die Kamera fährt langsam. Fixiert euch. Atmet schwer. Ihr hasst die Welt da draußen, aber am meisten hasst ihr euch selbst.',
-                content: 'München, 5. Juni 2026. Es flirrt. Es dröhnt. Die Schmellerstraße erstickt in ihrer eigenen, krampfhaft inszenierten Lebensfreude. Schanigärten. Diese provisorischen Holzverschläge der urbanen Wohlstandsverwahrlosten. Man sitzt dort, dicht gedrängt am Asphalt, trinkt Naturwein, der nach Essig und moralischer Überlegenheit schmeckt, und lacht dieses hysterische Dauerlachen der totalen Erschöpfung.\n\nUnd drinnen? Drinnen im Altbau, bei Frau von Horst, perlt der Rotwein, schwer und prätentiös. Durch die Dielen kriecht der 4/4-Takt des Bahnwärter Thiel. Bumm. Bumm. Bumm. Ein technoider Herzschlag, der den Maestro, Herrn Hell, in seiner Pensions-Tristesse zermürbt. Hilde fehlt. Ihr leeres Stuhlkissen im Raum schreit lauter als der Bass. Die Luft ist verbraucht. Wir sind verbraucht. Stellt euch vor. In all eurer bodenlosen, neurotischen Pracht.'
+                title: 'Szene 1: Die Idylle der Gartenordnung',
+                regie_music: 'Spielt fröhliche, leicht schiefe Blasmusik / Polka (Tipp: eine schwitzende Dorf-Blaskapelle).',
+                regie_act: 'Lächelt verkrampft. Prostet euch mit lauwarmer Apfelschorle zu. Ihr liebt diesen Verein. Ihr hasst einander.',
+                content: 'Ein gnadenlos heißer Samstag im Juli. Der Kleingartenverein "Zur Goldenen Scholle" feiert sein Sommerfest. Wimpelketten hängen schlaff in der Hitze, Bratwurstrauch kriecht über akkurat gestutzte Hecken, und auf jedem Klapptisch liegen die Bewertungsbögen für den "Schönster-Garten-Wettbewerb".\n\nAm Kopf der Bierzeltgarnitur thront leer der Stuhl des 1. Vorsitzenden. Reinhard Knoll – genannt "Der Paragraf" – fehlt. Vierzig Jahre lang regierte er die Kolonie mit der Gartenordnung in der einen und dem Abmahnblock in der anderen Hand. Sein leerer Platz brummt lauter als die Blaskapelle. Die Apfelschorle wird warm. Ihr werdet nervös. Lächelt. Stellt euch vor. In eurer ganzen kleingärtnerischen Pracht.'
             },
             {
-                title: 'Szene 2: Das Pendel der Belanglosigkeit',
-                regie_music: 'Schnitt! Abrupte Stille, dann: Ein herzzerreißendes, einsames Cello-Stück (Tipp: "On the Nature of Daylight" - Max Richter).',
-                regie_act: 'Erhebt euch langsam. Tretet ans unsichtbare Fenster. Haltet den Atem an. Ein Moment der reinen, ungeschminkten Panik.',
-                content: 'Frau von Horst reißt das Fenster auf. Sauerstoff, endlich, aber er riecht nach Feinstaub, Isar und dem kalten Schweiß der Stadt. Der Blick fällt auf das Viehhofgelände. Dort: der Kran. Ein rostiger Zeigefinger, der den schwarzen Himmel anklagt. Die riesige Diskokugel rotiert, stumpfsinnig, und zersplittert das Neonlicht in tausend billige Effekte.\n\nUnd da. Da hängt sie. Hilde. Im blutroten Paillettenkleid. Ein makabres Pendel. Schwerelos am Haken. Sie ist jetzt Kunst. Die ultimative, zynische Installation. Der postmoderne Abgesang auf das alte München. Herr Taaks flüstert, hohl, vollkommen entleert: "Die Struktur... das Muster löst sich auf." Ein kollektives Ersticken im Raum.'
+                title: 'Szene 2: Der Fund im Kompost',
+                regie_music: 'Schnitt! Die Blaskapelle bricht ab. Eine einzelne, schiefe Tuba. Dann Stille.',
+                regie_act: 'Erhebt euch. Geht langsam zum unsichtbaren Komposthaufen. Schlagt die Hand vor den Mund.',
+                content: 'Ein Schrei vom hinteren Ende der Anlage. Brigittes Tablett mit Streuselkuchen zerschellt auf dem Plattenweg.\n\nDort, im prämierten Komposthaufen – dem Stolz des Vereins –, liegt er. Reinhard. Mit dem Gesicht nach unten in der dampfenden Erde, das gute Sakko über und über mit Kompost beschmiert. Daneben, umgekippt, sein eigener Lieblings-Gartenzwerg mit der Schubkarre. Und im Gras blitzt der schwere gusseiserne Wanderpokal. Detlef flüstert tonlos: "Das... das verstößt gegen mindestens vier Paragrafen." Ein kollektives Schlucken in der flirrenden Hitze.'
             },
             {
-                title: 'Szene 3: Die Dialektik der Lüge',
-                regie_music: 'Lasst das Cello wie ein weinendes Kind im Hintergrund weiterlaufen.',
-                regie_act: 'Werdet nervös. LEST DIE INDIZIEN LAUT VOR. Die bürgerlichen Masken sitzen noch, aber sie riechen nach Angstschweiß.',
-                content: 'Das Ticken der Wanduhr wird zum ohrenbetäubenden Trommelfeuer. Die Polizei ist unterwegs. Ihr starrt euch an, und in jedem Augenpaar spiegelt sich der gleiche Abgrund. Die bürgerliche Fassade zerfällt. Jeder in diesem Raum ist eine Insel, ein autistisches Ego-Projekt voller Sünden.\n\nKonstrukte müssen her. Die Architektur der Lüge. Reihum müsst ihr nun erklären, wo ihr gestern zwischen Mitternacht und 2 Uhr wart. Baut eure Paläste. Werdet toxisch. Kläfft euch an in diesem Käfig aus Stuck und Heuchelei.',
+                title: 'Szene 3: Paragraf gegen Panik',
+                regie_music: 'Lasst eine nervöse Geräuschkulisse aus Grillenzirpen und einer tickenden Uhr laufen.',
+                regie_act: 'Werdet nervös. LEST DIE INDIZIEN LAUT VOR. Die Gartenzwerg-Masken sitzen noch – aber der Angstschweiß tropft auf die Gartenordnung.',
+                content: 'Die Kirchturmuhr schlägt. Irgendwo heult schon eine Sirene. Ihr starrt euch an, und in jedem Blick liegt derselbe Abgrund aus Neid, Kränkung und jahrzehntelangem Beet-Grenzstreit.\n\nKonstrukte müssen her. Reihum müsst ihr nun erklären, wo ihr zwischen Einbruch der Dämmerung und dem schrecklichen Fund wart. Baut eure Alibis. Werdet kleinlich. Kläfft euch an über diesem dampfenden Komposthaufen aus Heuchelei.',
                 clues: [
-                    'Indiz 1: Am Tatort riecht es durchdringend nach esoterischem Palo-Santo-Räucherholz.',
-                    'Indiz 2: Neben Hildes Leiche liegt eine gerissene, extrem teure Meister-Cello-Saite.',
-                    'Indiz 3: Eine leere Flasche Asbach Uralt liegt zerbrochen im Flur.',
-                    'Indiz 4: Dramatische, tiefe Reifenspuren am Boden – eindeutig von einem massiven E-Lastenrad.',
-                    'Indiz 5: Das Vorhängeschloss vom Café lag extrem professionell geknackt am Boden (wie von einem Einbrecher/Hacker).'
+                    'Indiz 1: Am Komposter liegt eine umgekippte Flasche Unkrautvernichter – es stinkt beißend nach Gift.',
+                    'Indiz 2: Im Beet daneben steckt eine blutverschmierte, prämierte Rosenschere.',
+                    'Indiz 3: Eine Spur frisch "befreiten" Komposts führt zu einem umgestürzten Kompostklo an der hinteren Parzelle.',
+                    'Indiz 4: Ein zertrümmertes Ringlicht und ein zertretener Selfie-Stick liegen im Gras.',
+                    'Indiz 5: Aus dem Komposthaufen ragen hastig herausgerissene Seiten eines Kassenbuchs.'
                 ]
             },
             {
-                title: 'Szene 4: Die Anatomie des Exzesses',
-                regie_music: 'Musik aus. Nichts als absolute, dröhnende, unangenehme Stille.',
-                regie_act: 'Die Masken fallen! Lest die dunklen Geheimnisse aus euren Akten vor. Zeigt eure wahren Gesichter. Zerreißt euch.',
-                content: 'Der Tatort. Erdgeschoss. Die "Mode Kaffeeschnaderei Mokka" ist kein Café mehr, sondern der Autopsietisch eurer Seelen. Es riecht nach aufgeschlitztem Samt und der galligen Bitterkeit von kaltem Espresso. Die alte Maschine röchelt, spuckt Dampf wie ein sterbender Kettenraucher.\n\nAm Boden: Die gewalttätige Kalligraphie eines E-Lastenrad-Reifens. Schwarzer Gummi auf Dielenholz. Eine enthauptete Schaufensterpuppe. Eine gerissene Cello-Saite. Das Tagebuch, geschändet. Die Indizien brüllen. Packt eure dunkelsten Geheimnisse auf den Tisch! Legt eure Abgründe offen! Wer von euch ist der Riss in der Matrix?'
+                title: 'Szene 4: Wo der Rasen am tiefsten ist',
+                regie_music: 'Musik aus. Nur das Summen einer einzelnen, fetten Hummel. Unangenehme Stille.',
+                regie_act: 'Die Gartenzwerg-Masken fallen! Lest eure dunklen Geheimnisse vor. Zeigt, was unter dem gepflegten Rasen verscharrt liegt.',
+                content: 'Der Tatort. Der Komposthaufen ist kein Stolz mehr, sondern der Seziertisch eurer kleinen Seelen. Es riecht nach Verwesung, warmer Erde und kaltem Grillfett.\n\nAuf dem Boden: der gusseiserne Wanderpokal, an einer Kante dunkel verklebt. Die herausgerissenen Seiten des Kassenbuchs. Der umgestürzte Gartenzwerg. Die leere Giftflasche. Die Indizien brüllen. Packt eure dunkelsten Geheimnisse auf den Gartentisch! Wer von euch hat die Idylle zerbrochen?'
             },
             {
-                title: 'Szene 5: Das Opferlamm-Kollektiv',
-                regie_music: 'Spielt ein treibendes, episches Orchesterstück (Tipp: "Time" - Hans Zimmer). Die Zeit läuft ab!',
-                regie_act: 'Ein letztes, chaotisches Aufbäumen. Durcheinanderreden. Dann eiskalte Entschlossenheit.',
-                content: 'Crescendo. Blaues Blinklicht zersägt die Nacht, schreddert die gemütliche Schanigarten-Romantik da draußen auf dem Asphalt. Sirenen. Sie schneiden gellend durch das Fleisch der Isarvorstadt, verkünden das Ende der Heuchelei.\n\nDas Tribunal schließt. Fünf Minuten. Ihr habt noch exakt fünf Minuten, um ein Opferlamm auf den Altar der Justiz zu schleifen, um den eigenen, feigen Rest zu retten. Wer ist das Bauernopfer? Zählt auf drei... und richtet eure Finger wie Klingen auf den Mörder. Klickt dann auf die Auflösung.'
+                title: 'Szene 5: Das Standgericht der Laubenpieper',
+                regie_music: 'Spielt ein treibendes, viel zu episches Orchesterstück für einen Kleingartenverein. Die Zeit läuft ab!',
+                regie_act: 'Ein letztes, chaotisches Aufbäumen. Durcheinanderreden. Dann zeigt mit dem Gartenhandschuh auf den Schuldigen.',
+                content: 'Crescendo. Blaulicht zuckt über die Lauben und zersägt die Wimpelketten. Die Sirenen verkünden das Ende der Idylle.\n\nDas Standgericht tagt. Fünf Minuten. Ihr habt noch exakt fünf Minuten, um ein Bauernopfer auf den Altar der Gartenordnung zu zerren und den eigenen, gepflegten Rasen zu retten. Wer ist das Opferlamm? Zählt auf drei – und richtet eure Gartenhandschuhe wie Anklagen auf den Mörder. Klickt dann auf die Auflösung.'
             }
         ];
 
         // --- ICONS ---
         const IconSkullCoffee = () => (
             <svg viewBox="0 0 100 100" className="w-24 h-24 mx-auto mb-6">
-                {/* Thick Blease-style outline */}
-                <path d="M20 20 h40 v40 a20 20 0 0 1 -40 0 v-40" className="line-art" fill="white" />
-                <path d="M60 30 h10 a10 10 0 0 1 0 20 h-10" className="line-art" />
-                <circle cx="32" cy="40" r="5" fill="#0A0A0A" />
-                <circle cx="48" cy="40" r="5" fill="#0A0A0A" />
-                <path d="M35 60 q 5 -5 10 0 q 5 5 10 0" className="line-art" /> 
-                <path d="M30 15 q 5 -10 10 -15" className="line-art" />
-                <path d="M40 15 q -5 -10 0 -15" className="line-art" />
-                <path d="M50 15 q 5 -10 10 -15" className="line-art" />
-                <circle cx="28" cy="48" r="3" fill="#EF476F" /> {/* Pink tear */}
+                {/* Zipfelmütze */}
+                <path d="M25 52 Q50 -8 75 52 Z" className="line-art" fill="#EF476F" />
+                {/* Gesicht */}
+                <circle cx="50" cy="60" r="20" className="line-art" fill="white" />
+                {/* Tote X-Augen */}
+                <path d="M39 55 l7 7 M46 55 l-7 7" className="line-art" />
+                <path d="M54 55 l7 7 M61 55 l-7 7" className="line-art" />
+                {/* Knollennase */}
+                <circle cx="50" cy="66" r="4" fill="#EF476F" />
+                {/* Bart */}
+                <path d="M34 68 q16 26 32 0" className="line-art" fill="#F4F4EB" />
             </svg>
         );
 
         const IconDiscoKran = () => (
             <svg viewBox="0 0 100 100" className="w-24 h-24 mx-auto mb-4 bg-white rounded-full border-4 border-black p-2">
-                <circle cx="50" cy="50" r="30" className="line-art" />
-                <path d="M20 50 h60 M30 25 l40 50 M30 75 l40 -50 M50 20 v60" className="line-art" />
-                <path d="M50 20 v-20" className="line-art" strokeDasharray="4 4" />
-                <path d="M48 80 v15 M52 80 v15 M46 95 h8" className="line-art" stroke="#EF476F"/>
+                {/* Pokal-Schale */}
+                <path d="M30 26 H70 V40 A20 18 0 0 1 30 40 Z" className="line-art" />
+                {/* Henkel */}
+                <path d="M30 30 H18 A8 8 0 0 0 28 42" className="line-art" />
+                <path d="M70 30 H82 A8 8 0 0 1 72 42" className="line-art" />
+                {/* Stiel und Fuß */}
+                <path d="M50 58 V72 M38 80 H62 M43 72 H57" className="line-art" />
+                {/* Stern */}
+                <path d="M50 31 l2.5 5 5.5 .8 -4 4 1 5.5 -5 -2.8 -5 2.8 1 -5.5 -4 -4 5.5 -.8 z" className="line-art" fill="#FFD166" stroke="none" />
             </svg>
         );
 
@@ -308,27 +303,17 @@
                 }
             };
 
-            const handleGmLogin = (e) => {
-                e.preventDefault();
-                if (pwdInput.toLowerCase() === 'schmella') {
-                    setView('gm');
-                    setPwdError(false);
-                } else {
-                    setPwdError(true);
-                }
-            };
-
             const renderHome = () => (
                 <div className="max-w-2xl mx-auto text-center mt-10 md:mt-16">
                     <IconSkullCoffee />
                     <h1 className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none text-blease-pink" style={{ textShadow: '4px 4px 0px #0A0A0A' }}>
-                        Mord in der<br/>Schmellerstr.
+                        Mord im<br/>Schrebergarten
                     </h1>
                     
                     <div className="clapper-border h-4 w-full max-w-sm mx-auto mb-4 rotate-1"></div>
                     
                     <p className="font-script text-lg font-bold mb-10 bg-white border-4 border-black p-2 inline-block shadow-[4px_4px_0_0_#0A0A0A] transform -rotate-2">
-                        Ein Indie-Krimi // München 80337
+                        Ein Garten-Krimi // K.G.V. Goldene Scholle
                     </p>
                     
                     <div className="space-y-6">
@@ -338,7 +323,7 @@
                         <button onClick={() => setView('charSelect')} className="blease-btn bg-blease-yellow w-full py-4 text-xl block text-center">
                             🕵️‍♀️ Meine Rolle wählen
                         </button>
-                        <button onClick={() => { setView('gmLogin'); setPwdInput(''); setPwdError(false); }} className="blease-btn bg-[#0A0A0A] text-white w-full py-4 text-xl block text-center">
+                        <button onClick={() => setView('gm')} className="blease-btn bg-[#0A0A0A] text-white w-full py-4 text-xl block text-center">
                             🎬 Das Skript (Regie)
                         </button>
                     </div>
@@ -372,32 +357,11 @@
                                 type="password" 
                                 value={pwdInput} 
                                 onChange={(e) => setPwdInput(e.target.value)}
-                                className="blease-input w-full p-4 text-center text-xl text-black"
+                                className="blease-input w-full p-4 text-center text-xl"
                                 placeholder="Geheimcode"
                             />
                             {pwdError && <p className="text-white font-script font-bold bg-red-600 inline-block px-2 border-2 border-black transform rotate-2">Falsch! Schnitt, nochmal!</p>}
-                            <button type="submit" className="blease-btn bg-white w-full py-4 text-lg text-black">Akte entsperren</button>
-                        </form>
-                    </div>
-                </div>
-            );
-
-            const renderGmLogin = () => (
-                <div className="max-w-md mx-auto mt-16 text-center">
-                    <button onClick={() => setView('home')} className="font-bold border-b-4 border-black mb-8 uppercase">&larr; Zurück zum Set</button>
-                    <div className="blease-box bg-[#0A0A0A] p-8 text-white">
-                        <h2 className="text-4xl font-black uppercase mb-2 text-white">🎬 Regie</h2>
-                        <p className="font-script font-bold mb-8 bg-white text-black border-2 border-black inline-block px-3 py-1">Passwort erforderlich</p>
-                        <form onSubmit={handleGmLogin} className="space-y-4">
-                            <input 
-                                type="password" 
-                                value={pwdInput} 
-                                onChange={(e) => setPwdInput(e.target.value)}
-                                className="blease-input w-full p-4 text-center text-xl text-black"
-                                placeholder="Regie-Code"
-                            />
-                            {pwdError && <p className="text-white font-script font-bold bg-red-600 inline-block px-2 border-2 border-white transform rotate-2">Falsch! Schnitt, nochmal!</p>}
-                            <button type="submit" className="blease-btn bg-blease-pink border-white text-white w-full py-4 text-lg">Skript freischalten</button>
+                            <button type="submit" className="blease-btn bg-white w-full py-4 text-lg">Akte entsperren</button>
                         </form>
                     </div>
                 </div>
@@ -526,7 +490,7 @@
 
             const renderResolution = () => {
                 const accused = CHARACTERS.find(c => c.id === accusedId);
-                const correct = accusedId === 'justus';
+                const correct = accusedId === 'gerd';
                 let oscarId = null, oscarN = 0;
                 CHARACTERS.forEach(c => { const n = oscarVotes[c.id] || 0; if (n > oscarN) { oscarN = n; oscarId = c.id; } });
                 const oscar = oscarN > 0 ? CHARACTERS.find(c => c.id === oscarId) : null;
@@ -538,7 +502,7 @@
                         <p className="font-black uppercase text-3xl leading-none mt-1">{accused ? `Angeklagt: ${accused.name}` : 'Kein Urteil'}</p>
                     </div>
 
-                    <h2 className="text-5xl font-black uppercase mb-8 text-blease-pink" style={{ textShadow: '4px 4px 0px #0A0A0A' }}>Der Exitus des Authentischen</h2>
+                    <h2 className="text-5xl font-black uppercase mb-8 text-blease-pink" style={{ textShadow: '4px 4px 0px #0A0A0A' }}>Das Ende der Idylle</h2>
 
                     <div className="blease-box bg-white p-8 text-left">
                         {correct ? (
@@ -546,42 +510,42 @@
                         <h3 className="text-3xl font-black uppercase mb-4 border-b-4 border-black pb-2">Ihr habt ihn entlarvt.</h3>
 
                         <p className="text-xl font-script font-bold mb-6">
-                            Der Tänzer im Nebel der Gier war <span className="bg-blease-yellow px-2 border-2 border-black font-sans font-black uppercase text-2xl ml-1 shadow-[2px_2px_0_0_#0A0A0A]">Justus!</span> Und ihr habt mit zitterndem Finger auf ihn gezeigt.
+                            Der graue Mann hinter den Büchern war <span className="bg-blease-yellow px-2 border-2 border-black font-sans font-black uppercase text-2xl ml-1 shadow-[2px_2px_0_0_#0A0A0A]">Gerd!</span> Und ihr habt mit dem Gartenhandschuh auf ihn gezeigt.
                         </p>
                         <p className="font-script font-bold mb-4">
-                            Es ist die banale Tragik des Spätkapitalismus. Justus wollte den Raum, das Kapital, die hippe, durchdesignte Leere eines Matcha-Cafés. Doch als Hilde ihn im Mondlicht auslachte, ihn seelenlos nannte – einen bloßen Businessplan auf zwei Beinen –, zerbrach sein fragiles, auf Hafermilch gebautes Ego. Ein kurzes, brutales Handgemenge. Hilde stürzte in die antike Schneiderschere. Vintage-Seide, getränkt in Echtblut.
+                            Es ist die banale Tragik der Vereinsmeierei. Fünfundzwanzig Jahre lang zählte Gerd treu jeden Cent – und zweigte heimlich jeden zweiten ab, um die Schulden seiner gescheiterten Koi-Karpfen-Firma zu stopfen. Als Reinhard am Komposter das Loch in den Büchern aufdeckte und mit der großen Enthüllung bei der Ehrung drohte, zerbrach Gerds einzige Währung: seine Ehrbarkeit. Ein Flehen. Ein Lachen. Ein Stoß. Und der gusseiserne Wanderpokal tat den Rest.
                         </p>
                         <p className="font-script font-bold mb-4">
-                            Und dann? Der absolute Wahnsinn der Ästhetisierung. Panik wird zur Performance. In einem tränenblinden Anflug von romantisierendem Wahnsinn drapiert er die Leiche, wuchtet sie ins Urban-Mobility-Gefährt – sein gigantisches E-Lastenrad – und pedaliert weinend durch die regennasse Nacht zum Bahnwärter Thiel. Am Kran der Diskokugel inszeniert er ihren Abgang als morbid-episches Kunstwerk. Er ist kein eiskalter Mörder. Er ist nur der lächerlichste, tragischste Regisseur seines eigenen, pathetischen Untergangs.
+                            Und dann? Die Pedanterie der Vertuschung. Mit zitternden Händen wischte er den Pokal blank, riss die belastenden Seiten aus dem Kassenbuch und vergrub sie im prämierten Kompost. Zum Schluss stellte er einen Gartenzwerg auf – als sei der eiserne Vorsitzende bloß über die eigene Idylle gestolpert. Kein kaltblütiger Killer. Nur ein kleiner Mann, dessen Bilanz nicht mehr aufging.
                         </p>
                         </>
                         ) : (
                         <>
-                        <h3 className="text-3xl font-black uppercase mb-4 border-b-4 border-black pb-2">Das Opferlamm</h3>
+                        <h3 className="text-3xl font-black uppercase mb-4 border-b-4 border-black pb-2">Das Bauernopfer</h3>
 
                         <p className="text-xl font-script font-bold mb-6">
-                            Ihr habt <span className="bg-blease-pink text-white px-2 border-2 border-black font-sans font-black uppercase text-2xl ml-1 shadow-[2px_2px_0_0_#0A0A0A]">{accused ? accused.name : '—'}</span> ans Messer der Justiz geliefert.
+                            Ihr habt <span className="bg-blease-pink text-white px-2 border-2 border-black font-sans font-black uppercase text-2xl ml-1 shadow-[2px_2px_0_0_#0A0A0A]">{accused ? accused.name : '—'}</span> der Gartenordnung zum Fraß vorgeworfen.
                         </p>
                         <p className="font-script font-bold mb-4">
-                            {accused ? accused.name : 'Diese Person'}s Geheimnis war hässlich, niederträchtig, voller Schuld – aber es war <strong>kein Mord</strong>. Ihr habt euch ein bequemes Bauernopfer gesucht, um den eigenen feigen Rest zu retten. Genau davor warnte das Tribunal. Die Isarvorstadt frisst ihre Schwächsten zuerst.
+                            {accused ? accused.name : 'Diese Person'}s Geheimnis war kleinlich, peinlich, voller Schuld – aber es war <strong>kein Mord</strong>. Ihr habt euch ein bequemes Bauernopfer gesucht, um den eigenen, gepflegten Rasen rein zu halten. Genau davor warnte das Standgericht. Die Kolonie frisst ihre Sonderlinge zuerst.
                         </p>
                         <p className="font-script font-bold mb-4">
-                            Denn während ihr mit zitterndem Finger auf eine bequeme Lüge zeigtet, radelte der wahre Mörder ungesehen in die regennasse Nacht: <strong>Justus.</strong> Im Streit um den Mietvertrag stieß er Hilde in die antike Schneiderschere, drapierte die Leiche in tränenblindem Hipster-Wahn auf seinem E-Lastenrad und hängte sie als „episches Kunstwerk" an den Kran der Diskokugel. Kein eiskalter Killer – nur der lächerlichste, tragischste Regisseur seines eigenen Untergangs. Und jetzt? Frei. Nächste Woche eröffnet er seinen Matcha-Co-Working-Space im „Mokka".
+                            Denn während ihr mit dem Gartenhandschuh auf eine bequeme Lüge zeigtet, zählte der wahre Täter längst wieder seelenruhig die Kasse: <strong>Gerd, der Kassenwart.</strong> Reinhard hatte die veruntreuten Tausende in den Büchern entdeckt; am Komposter stieß Gerd ihn in Panik gegen den gusseisernen Wanderpokal, vergrub die Kassenbuch-Seiten im Kompost und stellte einen Gartenzwerg als Stolperfalle auf. Und jetzt? Unbehelligt. Die Bücher bleiben geschlossen, und nächste Woche zählt er wieder treu jeden Cent.
                         </p>
                         </>
                         )}
 
                         <div className="bg-[#0A0A0A] text-white p-4 mt-8 border-4 border-blease-pink shadow-[6px_6px_0_0_#EF476F]">
-                            <p className="font-black uppercase text-center text-blease-yellow mb-2 tracking-widest">Director's Cut (Alternativ, ohne Justus):</p>
+                            <p className="font-black uppercase text-center text-blease-yellow mb-2 tracking-widest">Director's Cut (Alternativ, ohne Gerd):</p>
                             <p className="font-script font-bold text-sm text-center">
-                                Herr Taaks dechiffriert das Nichts. Es war die Mafia. Osteuropa. Das Syndikat. Hilde zahlte Leos Schulden mit dem ultimativen Währungsmittel: Leben. Der Kran war kein Kunstwerk. Er war eine Quittung. Die Kälte der reinen Struktur. Niemand legt sich mit dem Syndikat an.
+                                Es war niemand. Reinhard, sturzbetrunken vom selbstgebrannten Mirabellenschnaps, stolperte über seinen eigenen Lieblings-Gartenzwerg und stürzte in den Kompost. Die Gartenordnung kennt keinen Paragrafen gegen die Schwerkraft. Doch ein Verein braucht einen Schuldigen – denn einen Unfall kann man nicht abmahnen.
                             </p>
                         </div>
                     </div>
 
                     {oscar && (
                         <div className="blease-box bg-blease-yellow p-4 mt-8 inline-block transform -rotate-1">
-                            <p className="font-black uppercase text-sm">🏆 Goldene Klappe – Bester Lügner</p>
+                            <p className="font-black uppercase text-sm">🏆 Goldene Kelle – Bester Lügner</p>
                             <p className="font-black uppercase text-3xl">{oscar.name}</p>
                         </div>
                     )}
@@ -644,7 +608,7 @@
                     </div>
 
                     <div className="blease-box bg-white p-5">
-                        <h3 className="text-2xl font-black uppercase mb-1">🏆 Goldene Klappe</h3>
+                        <h3 className="text-2xl font-black uppercase mb-1">🏆 Goldene Kelle</h3>
                         <p className="font-script font-bold text-sm mb-4">Optional: Wer hat am schamlosesten gelogen? Kürt euren Lieblings-Schauspieler (ohne Einfluss auf den Fall).</p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                             {CHARACTERS.map(c => {
@@ -696,7 +660,6 @@
                     {view === 'charSelect' && renderCharSelect()}
                     {view === 'charLogin' && renderCharLogin()}
                     {view === 'charSheet' && renderCharSheet()}
-                    {view === 'gmLogin' && renderGmLogin()}
                     {view === 'gm' && renderGM()}
                     {view === 'tribunal' && renderTribunal()}
                     {view === 'resolution' && renderResolution()}
